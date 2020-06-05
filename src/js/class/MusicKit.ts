@@ -12,6 +12,24 @@ export default class MK {
         });
 
         this.music = MusicKit.getInstance();
+
+        this.music.player.addEventListener('playbackProgressDidChange',() => console.log('playbackProgressDidChange') )
+        this.music.player.addEventListener('mediaItemDidChange',() => console.log('mediaItemDidChange') )
+        this.music.player.addEventListener('metadataDidChange',() => console.log('metadataDidChange') )
+        this.music.player.addEventListener('playbackBitrateDidChange',() => console.log('playbackBitrateDidChange') )
+        this.music.player.addEventListener('playbackDurationDidChange',() => console.log('playbackDurationDidChange') )
+        this.music.player.addEventListener('playbackProgressDidChange',() => console.log('playbackProgressDidChange') )
+        this.music.player.addEventListener('playbackStateDidChange',() => console.log('playbackStateDidChange') )
+        this.music.player.addEventListener('playbackStateWillChange',() => console.log('playbackStateWillChange') )
+        this.music.player.addEventListener('playbackTargetAvailableDidChange',() => console.log('playbackTargetAvailableDidChange') )
+        this.music.player.addEventListener('playbackTimeDidChangeplaybackTimeDidChange',() => console.log('playbackTimeDidChange') )
+        this.music.player.addEventListener('primaryPlayerDidChange',() => console.log('primaryPlayerDidChange') )
+        this.music.player.addEventListener('queueItemsDidChange',() => console.log('queueItemsDidChange') )
+        this.music.player.addEventListener('playbackVolumeDidChange',() => console.log('playbackVolumeDidChange') )
+        this.music.player.addEventListener('queuePositionDidChange',() => console.log('queuePositionDidChange') )
+        this.music.player.addEventListener('storefrontCountryCodeDidChange',() => console.log('storefrontCountryCodeDidChange') )
+        this.music.player.addEventListener('storefrontIdentifierDidChange',() => console.log('storefrontIdentifierDidChange') )
+
     }
 
     authorize() {

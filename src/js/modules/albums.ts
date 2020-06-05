@@ -17,9 +17,10 @@ export const vm = new Vue({
         document.addEventListener('musickitloaded', function(){
             MK = new MusicKit();
 
-            MK.music.addEventListener('mediaItemDidChange',()=> {
-                console.log('media item did change.')
-            })
+            MK.authorize()
+                .then(res => console.log(res))
+                .catch(err => console.log(err))
+
         })
     },
     methods: {
@@ -34,14 +35,11 @@ export const vm = new Vue({
                     console.log(queue)
                     MK.play().then(pos => {
                         console.log(pos)
-                        this.isPlaying = !this.isPlaying;
+                        this.isPlaying = true;
                         this.currentItem = this.getPlayer().nowPlayingItem;
                         console.log(this.currentItem);
                     });
                 })
-        },
-        stopSong() {
-          MK.stop();
         },
         getPlayer() {
             const player = MK.getPlayer()
@@ -60,6 +58,20 @@ export const vm = new Vue({
             console.log('skip to next')
             MK.skipToNext()
                 .then(res => this.currentItem = this.getPlayer().nowPlayingItem);
-        }
+        },
+        stop() {
+            MK.stop();
+            this.isPlaying = false;
+        },
+        pause() {
+            let player: JQuery<HTMLAudioElement> = $('#apple-music-player')
+            player[0].pause();
+            let playerVanilla:HTMLAudioElement = <HTMLAudioElement>document.getElementById('apple-music-player');
+            playerVanilla.pause();
+            MK.pause();
+        },
+        play() {
+            MK.play();
+        },
     },
 });

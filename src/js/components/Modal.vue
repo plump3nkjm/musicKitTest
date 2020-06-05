@@ -5,15 +5,15 @@
         .modal-header
           .modal-title
             h2 {{ currentItem.title }}
-            p {{ currentItem.artistName }} --- {{ currentItem.albumInfo }}
+            p {{ currentItem.artistName }} / {{ currentItem.albumInfo }}
         .modal-body
           img(:src="currentItem.artworkURL")
         .modal-footer.justify-content-between
-          button.btn.btn-secondary(type="button" @click="$emit('prev', null)") PREV
-          time(id="apple-music-current-playback-duration")
-          time(id="apple-music-current-playback-time")
-          time(id="apple-music-current-playback-progress")
-          button.btn.btn-secondary(type="button" @click="$emit('next', null)") NEXT
+          button.btn.btn-secondary(type="button" @click="$emit('prev', null)") «
+          div
+            button.btn.btn-secondary.mr-2(type="button" @click="$emit('play', null)" v-show="!isPlaying") ▶︎
+            button.btn.btn-secondary.mr-2(type="button" @click="$emit('stop', null)" v-show="isPlaying") ■︎
+          button.btn.btn-secondary(type="button" @click="$emit('next', null)") »
 </template>
 
 <script>

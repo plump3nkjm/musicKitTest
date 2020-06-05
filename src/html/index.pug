@@ -3,11 +3,19 @@ extends _layout
 block head
 
 block scripts
+  script(type="text/javascript" src="./main.js")
   script(src="https://js-cdn.music.apple.com/musickit/v1/musickit.js")
 
 block content
   #app
-    modal-component(:current-item="currentItem" :is-playing="isPlaying" @prev="skipToPrev" @next="skipToNext")
+    modal-component(
+      :current-item="currentItem"
+      :is-playing="isPlaying"
+      @prev="skipToPrev"
+      @next="skipToNext"
+      @stop="stop"
+      @play="play"
+      )
     .container
       .input-group.mt-4
         input.form-control(type="text" placeholder="アーティスト名" id="keyword" v-model="artistName")
@@ -15,6 +23,12 @@ block content
           button.btn.btn-outline-secondary(type="button" @click="searchAlbum(artistName)") 検索
 
       table.table.mt-4
+        tr
+          th
+          th アルバム名
+          th アーティスト名
+          th リリース日
+          th
         tr(v-for="(data, idx) in albums")
           td
             img(:src="data.attributes.artwork.url.replace(/({w}|{h})/g, '50')")
@@ -22,6 +36,4 @@ block content
           td {{ data.attributes.artistName }}
           td {{ data.attributes.releaseDate }}
           td
-            button(type="button" class="btn btn-link" @click="playSong(data.id)") 再生
-            button(type="button" class="btn btn-link" @click="stopSong") 停止
-            button(type="button" class="btn btn-link" @click="getPlayer") プレイヤー情報
+            button.btn.btn-primary(type="button" @click="playSong(data.id)") 再生
