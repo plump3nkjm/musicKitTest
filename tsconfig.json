@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "target": "es5", // for transpile *.ts to ECMAScript 5.
+    "module": "es2015", // for transpile modules to ES modules.
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true, // Allow syntax「import Vue from 'vue'」.
+    "typeRoots": [
+      "node_modules/musickit-typescript",
+      "node_modules/@types"
+    ],
+    "experimentalDecorators": true
+  }
+}

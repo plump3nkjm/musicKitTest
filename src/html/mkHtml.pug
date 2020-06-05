@@ -1,0 +1,28 @@
+extends _layout
+
+block head
+
+block scripts
+  script(src="https://js-cdn.music.apple.com/musickit/v1/musickit.js")
+
+block content
+  #app
+    // Today's hits
+    button(data-apple-music-set-queue="pl.f4d106fed2bd41149aaacabb233eb5eb") Today's hits
+
+    // Controls
+    button(data-apple-music-pause)
+    button(data-apple-music-play)
+    button(data-apple-music-skip-to-next-item)
+    button(data-apple-music-skip-to-previous-item)
+
+    p
+      img(data-apple-music-now-playing="artworkURL" width="300" height="300")
+
+    p(data-apple-music-now-playing="artistName")
+    p(data-apple-music-now-playing="albumInfo")
+
+    p
+      time(id="apple-music-current-playback-duration")
+      time(id="apple-music-current-playback-time")
+      time(id="apple-music-current-playback-progress")
