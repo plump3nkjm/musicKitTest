@@ -45,7 +45,7 @@
     "pug": "^2.0.4",
     "pug-cli": "github:pugjs/pug-cli#master",
     "pug-plain-loader": "^1.0.0",
-    "three": "^0.114.0",
+    "three": "^0.125.0",
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.3",
     "vue-loader": "^15.9.2",
