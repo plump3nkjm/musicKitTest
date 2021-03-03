@@ -42,7 +42,7 @@
     "jquery": "^3.4.1",
     "musickit-typescript": "^1.2.4",
     "popper.js": "^1.16.1",
-    "pug": "^2.0.4",
+    "pug": "^3.0.1",
     "pug-cli": "github:pugjs/pug-cli#master",
     "pug-plain-loader": "^1.0.0",
     "three": "^0.114.0",
